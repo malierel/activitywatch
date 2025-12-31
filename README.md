@@ -231,6 +231,12 @@ ActivityWatch has two server implementations:
 
 Both provide a REST API to a datastore and query engine, and serve the web interface developed in the `aw-webui` project (which provides the frontend).
 
+### Next-generation web UI (in-progress)
+
+- A parallel, modern UI now lives in `aw-web-ui-next/` built with Vite, React, TypeScript, Tailwind CSS tokens, shadcn-style components, TanStack Query/Table/Virtual, Apache ECharts, lucide-react, and zod.
+- Development: `cd aw-web-ui-next && npm install && npm run dev` (proxies `/api` to `http://localhost:5600` or `AW_SERVER_URL`).
+- Production build: `npm run build` emits `dist/` with `base` set to `/next/`; serve these assets from aw-server under the `/next` route while keeping the legacy UI at `/`.
+
 The REST API includes:
 
  - Access to a datastore suitable for timeseries/timeperiod-data organized in "buckets" (containers grouping related activity data by metadata like client type or hostname)
@@ -273,4 +279,3 @@ Want to help? Great! Check out the [CONTRIBUTING.md file](./CONTRIBUTING.md)!
 ## Questions and support
 
 Have a question, suggestion, problem, or just want to say hi? Post on [the forum](https://forum.activitywatch.net/)!
-
