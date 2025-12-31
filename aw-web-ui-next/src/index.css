@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --surface: #f6f8fb;
+  --surface-2: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+  --accent: #7c3aed;
+  --info: #0ea5e9;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --radius: 12px;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  color-scheme: dark;
+  --surface: #0b1220;
+  --surface-2: #0f172a;
+  --border: #1f2937;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #60a5fa;
+  --accent: #a855f7;
+  --info: #38bdf8;
+  --success: #22c55e;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --radius: 12px;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  @apply antialiased;
+}
+
+body {
+  @apply bg-surface text-text min-h-screen;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--surface-2) 85%, transparent);
+  backdrop-filter: blur(10px);
+  @apply border border-border shadow-card;
+}
+
+.token-card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.focus-ring {
+  @apply outline-none ring-2 ring-offset-2 ring-primary ring-offset-surface;
+}
+
+.animate-underscore {
+  position: relative;
+}
+
+.animate-underscore::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 999px;
+}
+
+.skeleton {
+  @apply bg-slate-200 dark:bg-slate-700 rounded animate-pulse;
+}

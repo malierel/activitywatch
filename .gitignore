@@ -3,6 +3,7 @@ dist
 docs
 other
 old
+node_modules
 
 # Coverage
 *coverage*
